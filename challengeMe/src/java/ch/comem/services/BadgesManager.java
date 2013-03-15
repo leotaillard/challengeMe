@@ -4,6 +4,7 @@
  */
 package ch.comem.services;
 
+import ch.comem.models.Badge;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -21,8 +22,21 @@ public class BadgesManager implements BadgesManagerLocal {
         em.persist(object);
     }
 
-    // Add business logic below. (Right-click in editor and choose
-    // "Insert Code > Add Business Method")
+    @Override
+    public Long createBadge(String title, String description) {
+        
+        Badge badge = new Badge();
+        
+        badge.setTitle(title);
+        badge.setDescription(description);
+        
+        em.persist(badge);
+        em.flush();
+        
+        return badge.getId();
+        
+    }
+
     
     
 

@@ -23,6 +23,9 @@ public class Badge implements Serializable {
 
     private String title;
     private String description;
+    
+    
+    
 
     public String getDescription() {
         return description;
